@@ -37,13 +37,29 @@ window.geometry(f"{window_width}x{window_height}+{window_x}+{window_y}")
 
 #game
 
-snake=Tile(5*TILE_SIZE,5*TILE_SIZE)
+snake= Tile(5*TILE_SIZE,5*TILE_SIZE)
+food = Tile(10*TILE_SIZE,10*TILE_SIZE)
+velocityX = 0
+velocityY = 0
+
+
+def change_direction(e):
+     print(e)
 
 def draw():
     global snake
     
     #draw snake
-    canvas.create_rectangle(snake.x,snake.y,snake.x + TILE_SIZE,snake.y +TILE_SIZE,fill ="")
+    canvas.create_rectangle(snake.x, snake.y, snake.x + TILE_SIZE,snake.y + TILE_SIZE, fill = "lime green")
+    
+    window.after(100, draw) #100ms = 1/10 second,10 frames/second
+    
+    #draw food
+    canvas.create_rectangle(food.x, food.y, food.x + TILE_SIZE,food.y + TILE_SIZE, fill = "red")
+    
+    window.after(100, draw) #100ms = 1/10 second,10 frames/second
+    
+draw()
 
-
+window.bind("<KeyRelease>",  change_direction)
 window.mainloop()
