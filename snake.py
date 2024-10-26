@@ -61,5 +61,5 @@ def draw():
     
 draw()
 
-window.bind("<KeyRelease>",  change_direction)
+window.bind("<KeyRelease>", change_direction)
 window.mainloop()
