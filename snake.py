@@ -49,7 +49,7 @@ def change_direction(e):
 def draw():
     global snake
     
-    #draw snake
+    
     canvas.create_rectangle(snake.x, snake.y, snake.x + TILE_SIZE,snake.y + TILE_SIZE, fill = "lime green")
     
     window.after(100, draw) #100ms = 1/10 second,10 frames/second
